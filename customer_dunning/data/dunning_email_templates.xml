@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+        <record id="dunning_5_day_before" model="mail.template">
+            <field name="name">5 days before payment due</field>
+            <field name="model_id" ref="sale_stock.model_account_invoice"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.partner_id.email|safe}</field>
+            <field name="subject">Payment request notification (5 days before due)</field>
+            <field name="body_html"><![CDATA[
+<p>Hi ${object.partner_id.name},</p>
+<p>
+This is to remind you that your invoice ${object.number} is only 5 days to due date.
+Please settle your payment on your soonest and most convinient time.
+
+</p>
+<p>Have a great day!</p>            
+             ]]></field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+        <record id="dunning_1_day_before" model="mail.template">
+            <field name="name">1 day before payment due</field>
+            <field name="model_id" ref="sale_stock.model_account_invoice"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.partner_id.email|safe}</field>
+            <field name="subject">Payment request notification (1 day before due)</field>
+            <field name="body_html"><![CDATA[
+<p>Hi ${object.partner_id.name},</p>
+<p>
+This is to remind you that your invoice ${object.number} is due tomorrow.
+Please settle your payment on your soonest and most convinient time.
+
+</p>
+<p>Have a great day!</p>            
+             ]]></field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+        <record id="dunning_10_day_after" model="mail.template">
+            <field name="name">10 days after payment due</field>
+            <field name="model_id" ref="sale_stock.model_account_invoice"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.partner_id.email|safe}</field>
+            <field name="subject">Payment request notification (10 days after due)</field>
+            <field name="body_html"><![CDATA[
+<p>Hi ${object.partner_id.name},</p>
+<p>
+This is to remind you that your invoice ${object.number} is 10 days overdue.
+Please settle your payment on your soonest and most convinient time.
+
+</p>
+<p>Have a great day!</p>            
+             ]]></field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+        <record id="dunning_30_day_after" model="mail.template">
+            <field name="name">30 days after the payment due</field>
+            <field name="model_id" ref="sale_stock.model_account_invoice"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.partner_id.email|safe}</field>
+            <field name="subject">Payment request notification (30 days after due)</field>
+            <field name="body_html"><![CDATA[
+<p>Hi ${object.partner_id.name},</p>
+<p>
+This is to remind you that your invoice ${object.number} is 30 days overdue.
+Please settle your payment on your soonest and most convinient time.
+
+</p>
+<p>Have a great day!</p>            
+             ]]></field>
+            <field name="user_signature" eval="False"/>
+        </record>
+
+
+
+</odoo>

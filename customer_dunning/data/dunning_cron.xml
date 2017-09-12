@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+    <record model="ir.cron" id="customer_dunning">
+        <field name="name">Evaluate Customer for Dunning</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model" eval="'account.invoice'"/>
+        <field name="function" eval="'_cron_check_invoice_due_dates'"/>
+        <field name="args" eval="'()'" />
+    </record>
+</odoo>
