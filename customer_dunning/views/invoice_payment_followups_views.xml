@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+           <record model="ir.ui.view" id="invoice_payment_followup_form_view">
+                <field name="name">invoice.payment.followup.form</field>
+                <field name="model">invoice.payment.followup</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Invoice Payment Followup">
+                        <sheet>
+                            <div>
+                                <group col="2">
+	                               <field name="company_id"/>                           
+		                           <field name="active"/>
+	                           </group>
+	                        </div>
+	                        
+	                        <div>
+
+	                        <field name="line_ids"/>
+	                        </div>
+                        </sheet>	                        
+                    </form>
+                </field>
+            </record>
+            
+            <record model="ir.ui.view" id="invoice_payment_followup_tree_view">
+                <field name="name">invoice.payment.followup.tree</field>
+                <field name="model">invoice.payment.followup</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Invoice Payment Followup">
+                        <field name="active"/>
+                        <field name="company_id"/>
+                    </tree>
+                </field>
+            </record>    
+            
+wi            <record model="ir.actions.act_window" id="action_invoice_payment_followup_tree_view">
+                <field name="name">Invoice Payment Followup</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">invoice.payment.followup</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="invoice_payment_followup_tree_view"/>
+        </record>
+        
+        <menuitem id="customer_dunning_view" action="action_invoice_payment_followup_tree_view" name="Customer Dunning" parent="account.menu_finance_configuration"/>
+        
+        
+                    <record model="ir.ui.view" id="invoice_payment_followup_line_tree_view">
+                <field name="name">invoice.payment.followup.line.tree</field>
+                <field name="model">invoice.payment.followup.line</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Invoice Payment Followup Line">
+                        <field name="date_duration_type"/>
+                        <field name="date_duration"/>
+                    </tree>
+                </field>
+            </record>
+
+
+
+</odoo>

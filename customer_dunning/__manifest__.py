@@ -17,6 +17,9 @@
     'data': [
         #partner view alteration
         'views/res_partner_views.xml',
+        
+        #invoice payment followup
+        'views/invoice_payment_followups_views.xml',
                 
         #email templates
         'data/dunning_email_templates.xml',
